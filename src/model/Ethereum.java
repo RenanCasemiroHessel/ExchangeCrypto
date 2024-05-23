@@ -8,13 +8,13 @@ package model;
  *
  * @author renan
  */
-public class Bitcoin {
+public class Ethereum {
     private double TaxaCompra;
     private double TaxaVenda;
 
-    public Bitcoin() {
-        this.TaxaCompra = 0.02;
-        this.TaxaVenda = 0.03;
+    public Ethereum() {
+        this.TaxaCompra = 0.01;
+        this.TaxaVenda = 0.02;
     }
 
     public double getTaxaCompra() {

@@ -1,4 +1,7 @@
 package view;
+import controller.Controle;
+import controller.ControleLogin;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -10,6 +13,8 @@ package view;
  * @author renan
  */
 public class Compra extends javax.swing.JFrame {
+    private boolean senhaValida = false;
+    
 
     /**
      * Creates new form compra_e_venda
@@ -27,59 +32,181 @@ public class Compra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        GrupoMoedas = new javax.swing.ButtonGroup();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
+        jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        XrpButton = new javax.swing.JRadioButton();
+        EthButton = new javax.swing.JRadioButton();
+        BtcButton = new javax.swing.JRadioButton();
+        CompraText = new javax.swing.JTextField();
+        CompraButton = new javax.swing.JButton();
+        SenhaCompraText = new javax.swing.JTextField();
+        VerificarButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        CompraArea = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
+        jScrollPane2.setViewportView(jEditorPane1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        jPanel2.setBackground(new java.awt.Color(32, 32, 44));
+
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setText("Compra");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/F_O_R-removebg-preview (3).png"))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel2.setText("Compra");
-
+        jPanel1.setBackground(new java.awt.Color(30, 30, 40));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setForeground(new java.awt.Color(30, 30, 40));
 
-        jRadioButton1.setText("Bitcoin");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        XrpButton.setBackground(new java.awt.Color(30, 30, 40));
+        GrupoMoedas.add(XrpButton);
+        XrpButton.setForeground(new java.awt.Color(204, 204, 204));
+        XrpButton.setText("Ripple");
+
+        EthButton.setBackground(new java.awt.Color(30, 30, 40));
+        GrupoMoedas.add(EthButton);
+        EthButton.setForeground(new java.awt.Color(204, 204, 204));
+        EthButton.setText("Ethereum");
+        EthButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                EthButtonActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setText("Etherium");
-
-        jRadioButton2.setText("Rumble");
+        BtcButton.setBackground(new java.awt.Color(30, 30, 40));
+        GrupoMoedas.add(BtcButton);
+        BtcButton.setForeground(new java.awt.Color(204, 204, 204));
+        BtcButton.setText("Bitcoin");
+        BtcButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtcButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(jRadioButton3)
-                .addGap(69, 69, 69)
-                .addComponent(jRadioButton2)
-                .addGap(82, 82, 82))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtcButton)
+                .addGap(52, 52, 52)
+                .addComponent(EthButton)
+                .addGap(52, 52, 52)
+                .addComponent(XrpButton)
+                .addGap(105, 105, 105))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton1))
-                .addContainerGap(73, Short.MAX_VALUE))
+                    .addComponent(XrpButton)
+                    .addComponent(EthButton)
+                    .addComponent(BtcButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        CompraText.setBackground(new java.awt.Color(30, 30, 40));
+        CompraText.setForeground(new java.awt.Color(204, 204, 204));
+
+        CompraButton.setBackground(new java.awt.Color(34, 40, 54));
+        CompraButton.setForeground(new java.awt.Color(204, 204, 204));
+        CompraButton.setText("Comprar");
+        CompraButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CompraButtonActionPerformed(evt);
+            }
+        });
+
+        SenhaCompraText.setBackground(new java.awt.Color(30, 30, 40));
+        SenhaCompraText.setForeground(new java.awt.Color(204, 204, 204));
+        SenhaCompraText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SenhaCompraTextActionPerformed(evt);
+            }
+        });
+
+        VerificarButton.setBackground(new java.awt.Color(34, 40, 54));
+        VerificarButton.setForeground(new java.awt.Color(204, 204, 204));
+        VerificarButton.setText("Verificar");
+        VerificarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerificarButtonActionPerformed(evt);
+            }
+        });
+
+        CompraArea.setBackground(new java.awt.Color(30, 30, 40));
+        CompraArea.setColumns(20);
+        CompraArea.setForeground(new java.awt.Color(204, 204, 204));
+        CompraArea.setRows(5);
+        jScrollPane3.setViewportView(CompraArea);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addGap(96, 96, 96)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 85, Short.MAX_VALUE)
+                        .addComponent(SenhaCompraText, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(VerificarButton)
+                        .addGap(88, 88, 88))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(CompraText, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(CompraButton)
+                                .addGap(78, 78, 78)))
+                        .addContainerGap())))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SenhaCompraText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VerificarButton))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CompraText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CompraButton))
+                .addGap(51, 51, 51))
         );
 
         jMenu1.setText("File");
@@ -101,30 +228,17 @@ public class Compra extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(222, 222, 222))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -133,13 +247,41 @@ public class Compra extends javax.swing.JFrame {
             this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void EthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EthButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_EthButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void BtcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtcButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtcButtonActionPerformed
+
+    private void CompraButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompraButtonActionPerformed
+ 
+        if (senhaValida) {
+            String cpf = ControleLogin.getCpfUsuarioLogado();
+            Controle.realizarCompra(BtcButton, EthButton, XrpButton, CompraText, cpf);;
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, insira e valide sua senha antes de realizar a compra.");
+        }
+        
+        
+//        String cpf = ControleLogin.getCpfUsuarioLogado();
+//        Controle.realizarCompra(BtcButton, EthButton, XrpButton, CompraText, cpf);
+    }//GEN-LAST:event_CompraButtonActionPerformed
+
+    private void SenhaCompraTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaCompraTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SenhaCompraTextActionPerformed
+
+    private void VerificarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerificarButtonActionPerformed
+        String senha = SenhaCompraText.getText();
+        String cpf = controller.ControleLogin.getCpfUsuarioLogado();
+        senhaValida = Controle.verificarSenhaCV(cpf, senha, CompraArea);
+        if (!senhaValida) {
+            JOptionPane.showMessageDialog(this, "Por favor, insira e valide sua senha antes de realizar a compra.");
+        }
+    }//GEN-LAST:event_VerificarButtonActionPerformed
+
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -174,6 +316,16 @@ public class Compra extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton BtcButton;
+    private javax.swing.JTextArea CompraArea;
+    private javax.swing.JButton CompraButton;
+    private javax.swing.JTextField CompraText;
+    private javax.swing.JRadioButton EthButton;
+    private javax.swing.ButtonGroup GrupoMoedas;
+    private javax.swing.JTextField SenhaCompraText;
+    private javax.swing.JButton VerificarButton;
+    private javax.swing.JRadioButton XrpButton;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -181,8 +333,8 @@ public class Compra extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }

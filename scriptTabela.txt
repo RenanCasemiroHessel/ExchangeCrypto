@@ -1,0 +1,58 @@
+-- DROP TABLE IF EXISTS esquematicos.extrato;
+
+CREATE TABLE IF NOT EXISTS esquematicos.extrato
+(
+    cpf character varying COLLATE pg_catalog."default" NOT NULL,
+    data character varying COLLATE pg_catalog."default" NOT NULL,
+    tipo character varying COLLATE pg_catalog."default" NOT NULL,
+    valor double precision NOT NULL,
+    moeda character varying COLLATE pg_catalog."default" NOT NULL,
+    cotacao double precision NOT NULL,
+    taxa double precision NOT NULL,
+    saldoreal double precision NOT NULL,
+    saldobtc double precision NOT NULL,
+    saldoeth double precision NOT NULL,
+    saldoxrp double precision NOT NULL
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS esquematicos.extrato
+    OWNER to postgres;
+
+
+-- Table: esquematicos.pessoas
+
+-- DROP TABLE IF EXISTS esquematicos.pessoas;
+
+CREATE TABLE IF NOT EXISTS esquematicos.pessoas
+(
+    nome character varying COLLATE pg_catalog."default" NOT NULL,
+    cpf character varying COLLATE pg_catalog."default" NOT NULL,
+    senha character varying COLLATE pg_catalog."default" NOT NULL,
+    saldoreal double precision NOT NULL,
+    saldobtc double precision NOT NULL,
+    saldoeth double precision NOT NULL,
+    saldoxrp double precision NOT NULL
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS esquematicos.pessoas
+    OWNER to postgres;
+
+
+-- Table: esquematicos.valores
+
+-- DROP TABLE IF EXISTS esquematicos.valores;
+
+CREATE TABLE IF NOT EXISTS esquematicos.valores
+(
+    moedas character varying COLLATE pg_catalog."default" NOT NULL,
+    preco double precision NOT NULL
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS esquematicos.valores
+    OWNER to postgres;

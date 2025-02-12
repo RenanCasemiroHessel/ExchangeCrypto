@@ -1,5 +1,6 @@
 # Projeto (Exchange de criptomoedas)
-Projeto realizado em Java, usando JFrame, com o objetivo de criar uma exchange de criptomoedas com funcionalidades de:
+### Projeto da disciplina "orientação a objetos". Projeto realizado na linguagem Java. O projeto consiste em criar uma exchange de criptomoedas, usando banco de dados para salvar todos os clientes do banco virtual (utilizado PG Admin4).
+### O projeto possui as seguintes funcionalidades:
 
 1.Cadastrar novo cliente.
 
@@ -14,8 +15,6 @@ Projeto realizado em Java, usando JFrame, com o objetivo de criar uma exchange d
 6.Compra e venda de criptomoedas.
 
 7.Atualização da cotação.
-
-O projeto usa banco de dados para armazenar as contas cadastradas.
 
 # Aluno:
 Renan Casemiro Hessel RA: 24.123.019-2
